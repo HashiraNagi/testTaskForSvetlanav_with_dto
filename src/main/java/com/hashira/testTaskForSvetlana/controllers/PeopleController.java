@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 @RestController
 @RequestMapping("api")
@@ -32,7 +33,7 @@ public class PeopleController {
         personDTO.setName(person.getName());
         personDTO.setSurname(person.getSurname());
         if (person.getBirthday() != null) {
-            personDTO.setAge(LocalDate.now().getYear() - person.getBirthday().getYear());
+            personDTO.setAge(Period.between(person.getBirthday(),LocalDate.now()).getYears());
         }
         return personDTO;
     }
