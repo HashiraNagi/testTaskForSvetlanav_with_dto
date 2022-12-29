@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS person_table(
+    id BIGINT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    surname VARCHAR(100) NOT NULL,
+    birthday DATE NOT NULL
+);
